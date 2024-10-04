@@ -1,0 +1,325 @@
+
+<!doctype html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8">
+  <title>Generátor podpisů</title>
+  <link rel="stylesheet" href="https://use.typekit.net/frp8xhc.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.8.6/clipboard-polyfill.promise.js"></script>
+  <style type="text/css">
+    a {
+      text-decoration: none !important;
+      text-decoration-color: #ffffff !important;
+    }
+  </style>
+</head>
+
+<body class="d-flex justify-content-center">
+  <div id="signature-generator" class="py-5 px-3" style="max-width: 50rem">
+    <h2 class="mb-3">Generátor podpisů</h2>
+    <form class="mb-5">
+      <div class="form-group row">
+        <label for="fname" class="col-sm-2 col-form-label">Křestní Jméno</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="fname" v-model="fname">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lname" class="col-sm-2 col-form-label">Příjmení</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lname" v-model="lname">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="position" class="col-sm-2 col-form-label">Pozice</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="position" v-model="title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="office" class="col-sm-2 col-form-label">Region</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="office" v-model="office">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="mail" class="col-sm-2 col-form-label">E-mail</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="mail" v-model="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="phone" class="col-sm-2 col-form-label">Telefon<br /><span style="font-size:11px;">(s mezerami)</span></label>
+        <div class="col-sm-10">
+          <input type="tel" class="form-control" id="phone" v-model="phone">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="url" class="col-sm-2 col-form-label">Foto<br /><span style="font-size:11px;">(URL adresa, nebo smazat řádek)</span></label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" id="url" v-model="url">
+        </div>
+      </div>
+      <div class="mb-3">
+        <small>Kopírujte prosím jen přes toto tlačítko:</small>
+      </div>
+      <button class="btn btn-primary" @click.prevent="copyToClip">Kopírovat</button>
+    </form>
+    <p style="font-size:10pt; font-family:'Arial';">Dobrý den,</p>
+    <p style="font-size:10pt; font-family:'Arial';">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum urna ac urna gravida, sit amet
+      cursus lectus auctor. Aliquam efficitur finibus cursus. Mauris blandit eu nisl sed euismod.</p>
+    <p style="font-size:10pt; font-family:'Arial';" class="mb-0">S pozdravem<br /><br /></p>
+    <div id="copy" style="font-family: 'Arial', sans-serif; font-size:11px;">
+      <table style="border-collapse:collapse;">
+        <tbody>
+          <tr>
+            <td align="left">
+              <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table width="100%" cellspacing="0" cellpadding="0">
+                        <!--[if gte mso 9]>
+			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+				<v:fill type="tile" color="#f6f6f6"></v:fill>
+			</v:background>
+		<![endif]-->
+        
+        <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+          <tbody>
+              <tr>
+                  <td class="esd-email-paddings" valign="top">
+                      <table class="es-header esd-footer-popover" cellspacing="0" cellpadding="0" align="center">
+                          <tbody>
+                              <tr>
+                                  <td class="esd-stripe" align="center">
+                                      <table class="es-header-body" width="" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td class="esd-structure esdev-adapt-off" align="left" height="150">
+                                                      <table width="" cellpadding="0" cellspacing="0" class="esdev-mso-table">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td class="esdev-mso-td" valign="middle" height="150">
+                                                                      <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td v-if="url_office" class="es-m-p0r esd-container-frame" width="" valign="middle" align="center" style="" height="150">
+                                                                                      <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                          <tbody>
+                                                                                              <tr>
+                                                                                                <td v-if="url" valign="middle" align="center" class="esd-block-image"><!--<span style="font-family:'Arial'; text-transform:uppercase; font-weight:bold; font-size:13px;"><span style="letter-spacing:1px; font-weight:900 !important"></span><br /></span>-->
+                                                                                                    <span>&nbsp;<br /></span><a :href="utm_href" target="_blank"><img class="adapt-img" :src="url" :alt="photo_title" :title="photo_title" style="display: block; padding:2px;" width="105"></a>
+                                                                                                    <a :href="utm_href" target="_blank"><img class="adapt-img" src="https://mailing.proficio.cz/enado/bot_banner_2_a.png" alt="enado" title="enado" style="display: block; margin: 0px 5px 0px 5px; padding: 0px 5px 0px 5px;" width="110"></a>
+                                                                                                </td>
+                                                                                                <td v-if="!url" align="center" class="esd-block-image" style="font-size: 0px;"><span style="font-family:'Arial'; text-transform:uppercase; font-weight:bold; font-size:13px;"><span style="letter-spacing:1px; font-weight:900 !important"></span></span>
+                                                                                                    <a :href="utm_href" target="_blank"><img class="adapt-img" src="https://mailing.proficio.cz/enado/bot_banner_2_a.png" alt="enado" title="enado" style="display: block; margin: 0px 5px 0px 5px; padding: 0px 5px 0px 5px;" width="110"></a>
+                                                                                                </td>
+                                                                                              
+                                                                                          </tbody>
+                                                                                      </table>
+                                                                                  </td>
+                                                                                  <td v-if="!url_office" class="es-m-p0r esd-container-frame" width="" valign="middle" align="center" style="" height="150">
+                                                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                          <tr>
+                                                                                            <td v-if="!url" align="center" class="esd-block-image" style="font-size: 0px;"><span style="font-family:'Arial'; text-transform:uppercase; font-weight:bold; font-size:13px;"><span style="letter-spacing:1px; font-weight:900 !important"></span></span>
+                                                                                              <a :href="utm_href" target="_blank"><img class="adapt-img" src="https://mailing.proficio.cz/enado/bot_banner_2_a.png" alt="enado" title="enado" style="display: block; margin: 0px 5px 0px 5px; padding: 0px 5px 0px 5px;" width="110"></a>
+                                                                                          </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                  
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                                  
+                                                                  <td class="esdev-mso-td" valign="top">
+                                                                    <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="esd-container-frame" width="45" align="left">
+                                                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td align="center" class="esd-block-spacer es-p5" style="font-size:0">
+                                                                                                    <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td style="border-bottom: 0px solid #ffffff; background: unset; height: 1px; width: 100%; margin: 0px;"><img src="https://mailing.proficio.cz/enado/mapa_ico_3_blue.png" width="45" :alt="photo_title" :title="photo_title"></td>
+                                                                                                                <!--<td v-if="!office" style="border-bottom: 0px solid #ffffff; background: unset; height: 1px; width: 100%; margin: 0px;"><img src="https://mailing.proficio.cz/enado/0.png" width="60" :alt="photo_title" :title="photo_title"></td>-->
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                                  <td class="esdev-mso-td" valign="top">
+                                                                      <table cellpadding="0" cellspacing="0" class="es-right" align="right">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td width="550" align="left" class="esd-container-frame">
+                                                                                      <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                          <tbody>
+                                                                                              <tr>
+                                                                                                  <td align="left" class="esd-block-text es-p35t" style="">
+                                                                                                      <table class=" cke_show_border">
+                                                                                                          <tbody>
+                                                                                                              <tr>
+                                                                                                                  <td style=""><span style="font-family:'Arial'; line-height:10px; text-transform:uppercase; font-weight:bold; font-size:13px;"><br /><span style="letter-spacing:1px; font-weight:900 !important">{{ fname }} {{ lname }}</span></span>
+                                                                                                                    <span style="color:#000000;line-height:10px; text-decoration:underline !important; text-decoration-color:#ffffff !important; font-family:'Arial'; font-size:11px;font-weight:normal;"><br>{{ title }}<span v-if="office"><br>{{ office }}</span><span v-if="!office"></span></span>
+                                                                                                                    <p style="margin: 6px 0px 3px 0px;"><a style="color:#000000;line-height:10px;  text-decoration:underline !important; text-decoration-color:#ffffff !important; font-family:'Arial'; font-size:11px;" :href="phone_link">{{ phone }}</a>
+                                                                                                                    <a style="color:#000000; text-decoration:underline !important; text-decoration-color:#ffffff !important; font-family:'Arial'; font-size:11px;line-height:10px;" :href="mailto"><br />{{ email }}</a>
+                                                                                                                        
+                                                                                                                
+                                                                                                                    <table class=" cke_show_border" height="30" style="margin:10px 0px 0px 0px; padding:0px;">
+                                                                                                                        <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td height="37" valign="middle" style="padding-right:6px;"><a target="_blank" :href="utm_href"><img float="center" align="center" src="https://mailing.proficio.cz/enado/www_280px.png" alt="www" style="display: block;padding:1px;" width="35" height="35" title="www" clas></a></td>
+                                                                                                                                <td height="37" valign="middle" style="padding-right:6px;"><a target="_blank" href="https://www.facebook.com/profile.php?id=100082889484345"><img src="https://mailing.proficio.cz/enado/fb_ico_131.png" alt="FB" style="display: block;padding:1px;" width="35" height="35" title="FB" clas></a></td>
+                                                                                                                                <td height="37" valign="middle"><a target="_blank" href="https://www.linkedin.com/company/enado-s-r-o/"><img src="https://mailing.proficio.cz/enado/li_ico131.png" alt="LinkedIn" style="display: block;padding:1px;" width="35" height="35" title="LinkedIn" clas></a></td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </p>
+                                                                                                                    </td>
+                                                                                                              </tr>
+                                                                                                          </tbody>
+                                                                                                      </table>
+                                                                                                  </td>
+                                                                                              </tr>
+                                                                                          </tbody>
+                                                                                      </table>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                <td align="left" class="esd-block-image" style="font-size: 0px;"><a :href="utm_href" target="_blank"><img class="adapt-img" src="https://mailing.proficio.cz/enado/v5/bot_banner_5-2.png" alt="Solární asociace | Asociace pro využití tepelných čerpadel | Unie komunitní energetiky" title="Solární asociace | Asociace pro využití tepelných čerpadel | Unie komunitní energetiky" style="display: block; max-width:450px !important;" width="450"></a></td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    <!--
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>-->
+      
+    
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   <!-- <h2 class="mt-5 mb-3">Vložení podpisu v Gmail</h2>
+    <div class=""><img src="https://podpis.proficio.cz/podpis_How-to.png" class="img-fluid">
+    </div>-->
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#signature-generator',
+        data: {
+          fname: 'Michal',
+          lname: 'Majer',
+          title: 'regionální specialista',
+          office: 'středisko Staňkov',
+          phone: '+420 725 802 152',
+          email: 'michal.majer@enado.cz',
+          url: 'https://mailing.proficio.cz/enado/left_top_fot_crop_Y_115.png',
+          // TO DO: load dynamic values based on user
+          utm: {
+            source: 'gmail',
+            medium: 'email',
+          }
+        },
+        computed: {
+          url_office: function () {
+            return this.url + this.office;
+          },
+          title_uppercase: function () {
+            return this.title.toLowerCase();
+          },
+          campaign: function () {
+            var snippets = this.email.split('@');
+            return encodeURIComponent(snippets[0]);
+          },
+          utm_href: function () {
+            return 'http://www.enado.cz/?utm_source=' +
+              this.utm.source +
+              '&utm_medium=' +
+              this.utm.medium +
+              (this.campaign ? '&utm_campaign=' + this.campaign : '');
+          },
+          mailto: function () {
+            return 'mailto:' +
+              this.email;
+          },
+          phone_link: function () {
+            return 'tel:' +
+            this.phone.replace(/\s/g, '');
+          },
+          photo_link: function () {
+            return 'https://mailing.proficio.cz/enado/' +
+            this.fname + 
+            this.lname + 
+            '.png';
+          },
+          photo_title: function () {
+            return this.fname + ' ' + this.lname;
+          }  
+        },
+        methods: {
+          copyToClip: function () {
+            var copy = document.getElementById('copy').innerHTML;
+            var dt = new clipboard.DT();
+            dt.setData("text/plain", copy);
+            dt.setData("text/html", copy);
+            clipboard.write(dt);
+          }
+        }
+        
+      });
+    </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</body>
+
+</html>
